@@ -1,0 +1,50 @@
+.header{
+	padding-bottom: 20px;
+}
+.centered{
+	max-width: 800px;
+	margin: 0px auto;
+}
+.separator{
+	padding: 0 5px;
+}
+.page-links{
+	margin-top: 25px;
+}
+.page-link{
+	color: blue;
+}
+.page-link.active-link{
+	color: #848484
+}
+.tmargin5{
+	margin-top: 5px;
+}
+.form-submit-section{
+	margin-top: 50px;
+}
+#results{
+	margin-bottom: 60px;
+}
+.rmargin5{
+	margin-right: 5px !important;
+}
+.rmargin10{
+	margin-right: 10px !important;
+}
+.footer{
+	background: #000;
+	color: #FFF;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.footer .container{
+	padding: 10px;
+}
+
+@media (min-width: 320px){
+	.footer{
+		position: relative;
+	}
+}
