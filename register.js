@@ -43,7 +43,7 @@ var verifyForm = function(e){
 	return true;
 }
 var handleRegistration = function(e){
-	//verifyForm();
+	verifyForm();
 	populateStorage();
 	nextStep();
 }
