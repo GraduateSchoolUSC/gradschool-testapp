@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Registration | USC</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
@@ -23,46 +23,47 @@
 					<div class="alert hide" role="alert" id="form-alert">
 					</div>
 					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
+						<div class="col s6">
+							<div class="input-field">
 							    <label for="fname">First Name<sup>*</sup></label>
-							    <input type="text" required class="form-control" id="fname" placeholder="John">
+							    <input type="text" required class="form-control" id="fname" placeholder="John" class="validate">
 							 </div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
+						<div class="col s6">
+							<div class="input-field">
 							    <label for="lname">Last Name<sup>*</sup></label>
 							    <input type="text" required class="form-control" id="lname" placeholder="Doe">
 							 </div>
 						</div>
 					</div>
-				 	<div class="form-group">
+				 	<div class="input-field">
 				    	<label for="uscid">USC ID<sup>*</sup></label>
-				    	<input type="text" required class="form-control" id="uscid" placeholder="Enter 10-digit USC ID">
+				    	<input type="text" required class="form-control" id="uscid" placeholder="Enter 10-digit numeric USC ID">
 				 	</div>
-				  	<div class="form-group">
-				    	<label for="email">Email Address<sup>*</sup></label>
-				    	<input type="text" required class="form-control" id="email" placeholder="Enter USC Email Address">
+				  	<div class="input-field">
+				    	<label for="email">USC Email Address<sup>*</sup></label>
+				    	<input type="text" required class="form-control" id="email" placeholder="e.g. john@usc.edu">
 				  	</div>
-				  	<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
+				  	<div class="row input-field">
+						<div class="col s6">
+							<div class="input-field">
 							    <label for="pass">Password<sup>*</sup></label>
 							    <input type="password" required class="form-control" id="pass">
 							 </div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
+						<div class="col s6">
+							<div class="input-field">
 							    <label for="cpass">Confirm Password<sup>*</sup></label>
 							    <input type="password" required class="form-control" id="cpass">
 							 </div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="dob">Date of Birth</label>
+					<div class="input-field">
+						
 						<div class="row">
-							<div class="col-md-4">
-								<select class="form-control form-control-lg tmargin5 month-select">
+							<div class="col s4">
+							
+								<select class="tmargin5 month-select">
 								 	<option selected>Month</option>
 								 	<option value="01">January</option>
 								    <option value="02">February</option>
@@ -78,8 +79,8 @@
 								    <option value="12">December</option>
 								</select>
 							</div>
-							<div class="col-md-4">
-								<select class="form-control form-control-lg tmargin5 day-select">
+							<div class="col s4">
+								<select class="tmargin5 day-select">
 								 	<option selected>Day</option>
 								 	<option value="01">01</option>
 								    <option value="02">02</option>
@@ -114,8 +115,8 @@
 								    <option value="31">31</option>
 								</select>
 							</div>
-							<div class="col-md-4">
-								<select class="form-control form-control-lg tmargin5 year-select">
+							<div class="col s4">
+								<select class="tmargin5 year-select">
 								 	<option selected>Year</option>
 								 	<option value="2016">2016</option>
 									<option value="2015">2015</option>
@@ -175,39 +176,44 @@
 									<option value="1961">1961</option>
 									<option value="1960">1960</option>
 								</select>
+								<label for="dob">Date of Birth</label>
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="gen">Gender<sup>*</sup></label>
-						<label class="form-check-inline rmargin10">
-							<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="male-gen" value="male"> Male
-						</label>
-						<label class="form-check-inline rmargin10">
-						 	<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="female-gen" value="female"> Female
-						</label>
-						<label class="form-check-inline rmargin10">
-						 	<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="other-gen" value="other"> Other
-						</label>
+					<div class="input-field row">
+						<div class="col s12">					
+							<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="male-gen" value="male">
+							<label for="male-gen">Male</label>
+							<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="female-gen" value="female">
+							<label for="female-gen">Female</label>
+							<input class="form-check-input rmargin5" type="radio" name="inlineRadioOptions" id="other-gen" value="other">
+							<label for="other-gen">Other</label>
+						</div>
+					</div>
+					<br />
+					<div class="input-field row">
+						<div class="col s6">
+							<div class="form-check">					 	
+							    <input type="checkbox" value="1" id="tnc">
+							    <label for="tnc" class="form-check-label">I agree to the <a href="http://google.com">terms and conditions</a></label>
+							</div>
+						</div>
 					</div>
 					<div class="row form-submit-section">
-						<div class="col-md-6">
-							<div class="form-check">
-							 	<label class="form-check-label">
-							    <input class="form-check-input" type="checkbox" value="1" id="tnc">
-							    I read <a href="http://google.com">Terms and Conditions</a>
-							  	</label>
-							</div>
+						
+						<div class="col s8"></div>
+						<div class="col s2">
+							<div class="form-group pull-right">
+							    <button type="button" id="reset" class="btn">Reset</button>
+							 </div>
+							 <span class="clearfix"></span>
 						</div>
-						<div class="col-md-6">
+						<div class="col s2">
 							<div class="form-group pull-right">
 							    <button type="button" id="register-submit" class="btn btn-primary">Register</button>
 							 </div>
 							 <span class="clearfix"></span>
 						</div>
-					</div>
-					<div id="results">
-						
 					</div>
 				</form>
 			</div>
@@ -219,7 +225,7 @@
       </div>
     </footer>
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 	<script src="./register.js"></script>
 </body>
 </html>

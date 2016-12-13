@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success | Registration</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" />
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<div class="container">
+		<section class="header">
+				<div class="pull-left">
+					<h2>Student Registration Page</h2>
+				</div>
+				<div class="pull-right page-links">
+					<span class="page-link"><a href="./index.html">Home</a></span><span class="separator">/</span><span class="page-link">Registration</span><span class="separator">/</span><span class="page-link">Confirm Registration</span><span class="separator">/</span><span class="page-link active-link">Success</span>
+				</div>
+				<span class="clearfix"></span>
+			</section>
+		
+			<blockquote>Thank you for completing the registration process!</blockquote>
+		
+	</div>
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">2016 &copy; All Rights Reserved. University of Southern California | Terms of Service</p>
+      </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var data = sessionStorage.getItem('step2');
+		if(!data){
+			window.location.href = "index.html";
+		}else{		
+			sessionStorage.clear();	
+		}
+
+	});
+</script>
+</body>
+</html>
