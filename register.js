@@ -25,7 +25,7 @@ var verifyForm = function(e){
 		return false;
 	}
 	var pass = $("#pass").val();
-	if(!validatePassword(pass)){
+	if(true){ //Error injected
 		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character ").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
@@ -38,12 +38,14 @@ var verifyForm = function(e){
 	if(!isTermsChecked){
 		$("#form-alert").text("Please check the terms and conditions").addClass("alert-danger").removeClass('hide');
 		return false;
-	}
-	showJson();
+	}	
+	populateStorage();
+	nextStep();
 	return true;
 }
 var handleRegistration = function(e){
 	verifyForm();
+	//nextStep();
 }
 var resetAlert = function(){
 	$("#form-alert").text("").removeClass().addClass("alert hide");
@@ -53,8 +55,19 @@ var validateEmail = function(email) {
     return re.test(email.toLowerCase());
 }
 var validatePassword = function(password){
-	var re = (/^(?=.*\d)(?=.*[A-Z])(?=.*[!@#\$%\^\&*\)\(+=._-])[0-9a-zA-Z!@#\$%\^\&*\)\(+=._-]{6,24}$/);
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(password);
+}
+function nextStep(){
+	window.location.href = "next.html";
+}
+function populateStorage() {
+	sessionStorage.setItem('step1', '1');
+	showJson();
+}
+
+function removeStorage() {
+	sessionStorage.clear();
 }
 var showJson = function(){
 	var formData = {};
@@ -69,9 +82,11 @@ var showJson = function(){
 	formData["dob"]["day"] = $(".day-select").val();
 	formData["dob"]["year"] = $(".year-select").val();
 	formData["gender"] = $('input[name=inlineRadioOptions]:checked').val();
-	$("#results").html("<pre>"+JSON.stringify(formData,null, "\t") + "</pre>");
+	sessionStorage.setItem('userdata', JSON.stringify(formData,null, "\t"));
+	
 }
 $(document).ready(function(){
+	$('select').material_select();
 	$("#register-submit").on("click",handleRegistration);
 	$('input[name=inlineRadioOptions]').on('click',resetAlert);
 	$("#fname").on('click',resetAlert);
