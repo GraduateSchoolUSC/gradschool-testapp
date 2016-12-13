@@ -25,7 +25,7 @@ var verifyForm = function(e){
 		return false;
 	}
 	var pass = $("#pass").val();
-	if(!validatePassword(pass)){
+	if(true){ //Error injected
 		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character ").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
