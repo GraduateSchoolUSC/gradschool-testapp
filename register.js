@@ -38,14 +38,14 @@ var verifyForm = function(e){
 	if(!isTermsChecked){
 		$("#form-alert").text("Please check the terms and conditions").addClass("alert-danger").removeClass('hide');
 		return false;
-	}
+	}	
+	populateStorage();
 	nextStep();
 	return true;
 }
 var handleRegistration = function(e){
 	verifyForm();
-	populateStorage();
-	nextStep();
+	//nextStep();
 }
 var resetAlert = function(){
 	$("#form-alert").text("").removeClass().addClass("alert hide");
