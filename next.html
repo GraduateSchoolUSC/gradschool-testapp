@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Confirm | Registration</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" />
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<div class="container">
+		<section class="header">
+			<div class="pull-left">
+				<h2>Student Registration Page</h2>
+			</div>
+			<div class="pull-right page-links">
+				<span class="page-link">Home</span><span class="separator">/</span><span class="page-link">Registration</span><span class="separator">/</span><span class="page-link active-link">Confirm Registration</span>
+			</div>
+			<span class="clearfix"></span>
+		</section>
+		<blockquote>
+	      You have entered the following information -
+	    </blockquote>
+		<div id="results" class="card-panel">
+								
+		</div>
+		<div class="row form-submit-section">
+				<div class="col s8"></div>
+				<div class="col s2">
+					<div class="form-group pull-right">
+						<button type="button" id="discard" class="btn">Discard</button>
+					</div>
+					<span class="clearfix"></span>
+				</div>
+				<div class="col s2">
+					<div class="form-group pull-right">
+						<button type="button" id="data-submit" class="btn btn-primary">Submit</button>
+					</div>
+					<span class="clearfix"></span>
+				</div>
+		</div>
+</div>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">2016 &copy; All Rights Reserved. University of Southern California | Terms of Service</p>
+      </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script type="text/javascript">
+	var userdata = {};
+	function showJSON(){
+		userdata =  sessionStorage.getItem('userdata');
+		$("#results").html("<pre>"+ userdata + "</pre>");
+		userdata =  JSON.parse(userdata);
+		sessionStorage.clear();
+	}
+	function postToHTTPBIN(){
+		$.post( "http://httpbin.org/post", userdata, function( data ) {
+		  sessionStorage.setItem('step2', '1');
+		  window.location.href = "success.html";
+		});
+	}
+	function goToStep1(){
+		window.location.href = "index.html";
+	}
+
+	$(document).ready(function(){
+		var data = sessionStorage.getItem('step1');
+		if(!data){
+			window.location.href = "index.html";
+		}else{		
+			showJSON();		
+		}
+		$("#discard").on("click",goToStep1);
+		$("#data-submit").on('click', postToHTTPBIN);
+
+	});
+</script>
+</body>
+</html>
