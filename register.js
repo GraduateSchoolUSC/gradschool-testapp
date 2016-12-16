@@ -25,8 +25,8 @@ var verifyForm = function(e){
 		return false;
 	}
 	var pass = $("#pass").val();
-	if(true){ //Error injected
-		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character ").addClass("alert-danger").removeClass('hide');
+	if(!validatePassword(pass)){ 
+		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character !@#$%^&*+").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
 	var cpass = $("#cpass").val();
@@ -55,7 +55,7 @@ var validateEmail = function(email) {
     return re.test(email.toLowerCase());
 }
 var validatePassword = function(password){
-	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var re =  /^(?=.*[0-9])(?=.*[!@#$%^&*+])[a-zA-Z0-9!@#$%^&*+]{6,24}$/;
 	return re.test(password);
 }
 function nextStep(){
