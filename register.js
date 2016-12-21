@@ -25,7 +25,7 @@ var verifyForm = function(e){
 		return false;
 	}
 	var pass = $("#pass").val();
-	if(!validatePassword(pass)){ 
+	if(false){ 
 		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character !@#$%^&*+").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
@@ -43,10 +43,9 @@ var verifyForm = function(e){
 	nextStep();
 	return true;
 }
-var handleRegistration = function(e){
-	verifyForm();
-	//nextStep();
-}
+
+
+
 var resetAlert = function(){
 	$("#form-alert").text("").removeClass().addClass("alert hide");
 }
@@ -69,24 +68,29 @@ function populateStorage() {
 function removeStorage() {
 	sessionStorage.clear();
 }
-var showJson = function(){
+var showJSON = function(){
 	var formData = {};
 	formData["name"] = {};
 	formData["name"]["firstname"] = $("#fname").val();
 	formData["name"]["lastname"] = $("#lname").val();
 	formData["uscid"] = $("#uscid").val();
-	formData["email"] = $("#email").val();
-	formData["pass"] = $("#pass").val();
 	formData["dob"] = {};
 	formData["dob"]["month"] = $(".month-select").val();
 	formData["dob"]["day"] = $(".day-select").val();
 	formData["dob"]["year"] = $(".year-select").val();
-	formData["gender"] = $('input[name=inlineRadioOptions]:checked').val();
-	sessionStorage.setItem('userdata', JSON.stringify(formData,null, "\t"));
+	$("#results").html("<pre>"+ JSON.stringify(formData,null, "\t") + "</pre>");
+	$("#results").removeClass('hide');
+	//sessionStorage.setItem('userdata', JSON.stringify(formData,null, "\t"));
 	
 }
+
+var handleRegistration = function(e){
+	//verifyForm();
+	e.preventDefault();
+	showJSON();
+}
 $(document).ready(function(){
-	$('select').material_select();
+	//$('select').material_select();
 	$("#register-submit").on("click",handleRegistration);
 	$('input[name=inlineRadioOptions]').on('click',resetAlert);
 	$("#fname").on('click',resetAlert);

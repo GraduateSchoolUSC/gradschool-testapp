@@ -51,3 +51,6 @@
 		position: relative;
 	}
 }
+select{
+	display: inline-block !important;
+}
