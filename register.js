@@ -4,11 +4,11 @@ var verifyForm = function(e){
 		$("#form-alert").text("Please enter your firstname").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
-	var lname = $("#lname").val();
+	/*var lname = $("#lname").val();
 	if(!lname || lname.length === 0){
 		$("#form-alert").text("Please enter your lastname").addClass("alert-danger").removeClass('hide');
 		return false;
-	}
+	}*/
 	var uscid = $("#uscid").val();
 	if(!uscid || uscid.length !== 10 || isNaN(uscid)){
 		$("#form-alert").text("USC ID should be a 10 digit numeric value").addClass("alert-danger").removeClass('hide');
@@ -19,28 +19,28 @@ var verifyForm = function(e){
 		$("#form-alert").text("Email address should be valid USC email only").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
-	var checkedVal = $('input[name=inlineRadioOptions]:checked').val();
+	/*var checkedVal = $('input[name=inlineRadioOptions]:checked').val();
 	if(!checkedVal || checkedVal.length === 0){
 		$("#form-alert").text("Please select a gender").addClass("alert-danger").removeClass('hide');
 		return false;
-	}
+	}*/
 	var pass = $("#pass").val();
 	if(false){ 
 		$("#form-alert").text("Password should be alphanumeric with 6 - 24 characters with atleast one uppercase and one special character !@#$%^&*+").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
-	var cpass = $("#cpass").val();
+	/*var cpass = $("#cpass").val();
 	if(pass != cpass){
 		$("#form-alert").text("The value in confirm password is not same as in password").addClass("alert-danger").removeClass('hide');
 		return false;
-	}
+	}*/
 	var isTermsChecked = $("#tnc").prop('checked');
 	if(!isTermsChecked){
 		$("#form-alert").text("Please check the terms and conditions").addClass("alert-danger").removeClass('hide');
 		return false;
 	}	
-	populateStorage();
-	nextStep();
+	//populateStorage();
+	//nextStep();
 	return true;
 }
 
@@ -73,6 +73,7 @@ var showJSON = function(){
 	formData["name"] = {};
 	formData["name"]["firstname"] = $("#fname").val();
 	formData["name"]["lastname"] = $("#lname").val();
+	formData["email"] = $("#uscid").val();
 	formData["uscid"] = $("#uscid").val();
 	formData["dob"] = {};
 	formData["dob"]["month"] = $(".month-select").val();
@@ -85,12 +86,12 @@ var showJSON = function(){
 }
 
 var handleRegistration = function(e){
-	//verifyForm();
 	e.preventDefault();
-	showJSON();
+	if(verifyForm()){
+		showJSON();
+	}
 }
 $(document).ready(function(){
-	//$('select').material_select();
 	$("#register-submit").on("click",handleRegistration);
 	$('input[name=inlineRadioOptions]').on('click',resetAlert);
 	$("#fname").on('click',resetAlert);
