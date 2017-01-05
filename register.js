@@ -15,7 +15,7 @@ var verifyForm = function(e){
 		return false;
 	}
 	var email = $("#email").val();
-	if(!email || email.length === 0 || !validateEmail(email)){
+	if(!email || email.length === 0 ){
 		$("#form-alert").text("Email address should be valid USC email only").addClass("alert-danger").removeClass('hide');
 		return false;
 	}
