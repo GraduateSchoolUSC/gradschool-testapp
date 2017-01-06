@@ -79,7 +79,7 @@ var showJSON = function(){
 	formData["dob"]["month"] = $(".month-select").val();
 	formData["dob"]["day"] = $(".day-select").val();
 	formData["dob"]["year"] = $(".year-select").val();
-	$("#results").html("<pre>"+ JSON.stringify(formData,null, "\t") + "</pre>");
+	$("#results").html("<div class='green-text'>Form submitted successfully</div>");
 	$("#results").removeClass('hide');
 	//sessionStorage.setItem('userdata', JSON.stringify(formData,null, "\t"));
 	
